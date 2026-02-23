@@ -1,0 +1,14 @@
+1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+Ans: এদের প্রধান পার্থক্য হলো— কীভাবে element নির্বাচন করে, কতটি element রিটার্ন করে, এবং রিটার্ন করা collection live নাকি static।”
+
+2. How do you create and insert a new element into the DOM?
+Ans: নতুন element তৈরি করতে document.createElement() ব্যবহার করি, তারপর appendChild() বা append() দিয়ে সেটিকে DOM-এ যোগ করি।
+
+3. What is Event Bubbling? And how does it work?
+Ans: Event Bubbling হলো এমন একটি প্রক্রিয়া যেখানে কোনো child element-এ event ঘটলে সেই event ধাপে ধাপে তার parent → grandparent → document পর্যন্ত উপরের দিকে ছড়িয়ে যায়।
+
+4. What is Event Delegation in JavaScript? Why is it useful?
+Ans: Event Delegation হলো এমন একটি পদ্ধতি যেখানে child element-গুলোর জন্য আলাদা আলাদা event না দিয়ে parent element-এ একটিমাত্র event listener বসানো হয়, এবং event bubbling ব্যবহার করে target নির্ধারণ করা হয়।
+
+5. What is the difference between preventDefault() and stopPropagation() methods?
+Ans: preventDefault() default browser action বন্ধ করে, আর stopPropagation() event-এর bubbling (parent-এ ছড়িয়ে যাওয়া) বন্ধ করে।
