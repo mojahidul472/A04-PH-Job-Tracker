@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .tab-active-custom { background-color: #2563eb !important; color: white !important; border: none !important; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold text-[#001f3f] mb-6">Job Application Tracker</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+                <p class="text-sm text-gray-500 font-medium">Total</p>
+                <h2 class="text-3xl font-bold text-gray-800" id="dash-total">0</h2>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+                <p class="text-sm text-gray-500 font-medium">Interview</p>
+                <h2 class="text-3xl font-bold text-success" id="dash-interview">0</h2>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+                <p class="text-sm text-gray-500 font-medium">Rejected</p>
+                <h2 class="text-3xl font-bold text-error" id="dash-rejected">0</h2>
+            </div>
+        </div>
+
+        <hr class="border-t-2 border-pink-400 w-12 mb-8 mx-auto md:mx-0">
+
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-[#001f3f]">Available Jobs</h2>
+            <p class="text-sm text-gray-500 font-semibold"><span id="current-tab-count">0</span> jobs</p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+            <button id="tab-all" onclick="setTab('all')" class="btn btn-sm tab-active-custom px-6">All</button>
+            <button id="tab-interview" onclick="setTab('interview')" class="btn btn-sm btn-ghost bg-white border border-gray-200 text-gray-500 px-6">Interview</button>
+            <button id="tab-rejected" onclick="setTab('rejected')" class="btn btn-sm btn-ghost bg-white border border-gray-200 text-gray-500 px-6">Rejected</button>
+        </div>
+
+        <div id="jobs-wrapper">
+            <div id="jobs-container" class="space-y-4"></div>
+            
+            <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center bg-white rounded-xl border border-dashed border-gray-300">
+                <div class="bg-gray-50 p-6 rounded-full mb-4">
+                    <i data-lucide="folder-search" class="w-12 h-12 text-gray-300"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700">No Jobs Available</h3>
+                <p class="text-gray-500">The list is empty for this category.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
