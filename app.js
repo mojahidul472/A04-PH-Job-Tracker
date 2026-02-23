@@ -6,13 +6,13 @@ function initData() {
         jobs.push({ ...el.dataset });
     });
 }
-
+//Dashboard update
 function updateDashboard() {
     document.getElementById('dash-total').innerText = jobs.length;
     document.getElementById('dash-interview').innerText = jobs.filter(j => j.status === 'interview').length;
     document.getElementById('dash-rejected').innerText = jobs.filter(j => j.status === 'rejected').length;
 }
-
+//Tab bodlano
 function setTab(tab) {
     currentTab = tab;
     ['all', 'interview', 'rejected'].forEach(t => {
@@ -21,7 +21,7 @@ function setTab(tab) {
     });
     render();
 }
-
+// render code 
 function render() {
     const container = document.getElementById('jobs-container');
     const empty = document.getElementById('empty-state');
@@ -55,7 +55,8 @@ function render() {
             intBtn.onclick = () => { job.status = 'interview'; updateDashboard(); render(); };
             rejBtn.onclick = () => { job.status = 'rejected'; updateDashboard(); render(); };
             delBtn.onclick = () => { jobs = jobs.filter(j => j.id != job.id);
-             updateDashboard(); render(); 
+             updateDashboard(); 
+             render(); 
             };
 
             container.appendChild(clone);

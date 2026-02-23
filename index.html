@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- font-awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- font link  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 </head>
 <body class="p-4 md:p-8">
 
-    <div class="max-w-6xl mx-auto">
+    <section class="max-w-6xl mx-auto">
         <h1 class="text-2xl font-bold text-[#002C5C] mb-6">Job Application Tracker</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
@@ -82,7 +82,7 @@
             <h3 class="text-xl font-bold text-[#002C5C]">No jobs available</h3>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
-    </div>
+    </section>
 
     <template id="job-card-template">
         <div class="job-card bg-white p-6 rounded-lg border border-[#F1F2F4] shadow-sm relative group hover:shadow-md transition-all">
@@ -93,14 +93,14 @@
 
             <p class="job-pos text-[#64748B] mb-2 font-medium"></p>
 
-            <div class="job-meta flex flex-wrap gap-4 text-[11px] text-gray-400 mb-4 font-bold uppercase"></div>
+            <div class="job-meta flex flex-wrap gap-4 text-[11px] text-gray-400 mb-7 font-bold uppercase"></div>
             <div class="job-status-badge inline-block bg-[#EEF4FF] text-[#002C5C] px-3 py-1 rounded text-[10px] font-black mb-4 uppercase"></div>
 
             <p class="job-desc text-sm text-[#64748B] mb-6 leading-relaxed max-w-3xl"></p>
 
             <div class="flex gap-3">
-                <button class="btn-int btn btn-sm px-6 text-[10px] font-bold uppercase">Interview</button>
-                <button class="btn-rej btn btn-sm px-6 text-[10px] font-bold uppercase">Rejected</button>
+                <button class="btn-int btn btn-success px-8 text-[10px] font-bold uppercase">Interview</button>
+                <button class="btn-rej btn btn-error px-8 text-[10px] font-bold uppercase">Rejected</button>
             </div>
         </div>
     </template>
