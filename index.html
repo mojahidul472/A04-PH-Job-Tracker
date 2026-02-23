@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
-        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .tab-active-custom { background-color: #2563eb !important; color: white !important; border: none !important; }
+         *{
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold text-[#001f3f] mb-6">Job Application Tracker</h1>
+        <h1 class="text-2xl font-bold text-[#002C5C] mb-6">Job Application Tracker</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
-                <p class="text-sm text-gray-500 font-medium">Total</p>
-                <h2 class="text-3xl font-bold text-gray-800" id="dash-total">0</h2>
+                <p class="text-sm text-[#323B49] font-medium">Total</p>
+                <h2 class="text-3xl font-bold text-[#002C5C]" id="dash-total">0</h2>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
-                <p class="text-sm text-gray-500 font-medium">Interview</p>
+                <p class="text-sm text-[#323B49] font-medium">Interview</p>
                 <h2 class="text-3xl font-bold text-success" id="dash-interview">0</h2>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
-                <p class="text-sm text-gray-500 font-medium">Rejected</p>
+                <p class="text-sm text-[#323B49] font-medium">Rejected</p>
                 <h2 class="text-3xl font-bold text-error" id="dash-rejected">0</h2>
             </div>
         </div>
 
-        <hr class="border-t-2 border-pink-400 w-12 mb-8 mx-auto md:mx-0">
+        <hr class="border-t-2 border-[#E6E7E9] w-full mb-8 mx-auto md:mx-0">
+
+        <div id="raw-data" class="hidden">
+            <div class="job-source" data-id="1" data-company="Mobile First Corp" data-pos="React Native Developer" data-loc="Remote" data-type="Full-time" data-sal="$130,000 - $175,000" data-desc="Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide." data-status="all"></div>
+
+            <div class="job-source" data-id="2" data-company="WebFlow Agency" data-pos="Web Designer" data-loc="LA, CA" data-type="Part-time" data-sal="$80k - $120k" data-desc="Create high-end web experiences for premium digital brands." data-status="all"></div>
+            <div class="job-source" data-id="3" data-company="DataViz Solutions" data-pos="Data Specialist" data-loc="Boston, MA" data-type="Full-time" data-sal="$125k - $165k" data-desc="Transform big data into actionable insights and visualizations." data-status="all"></div>
+            <div class="job-source" data-id="4" data-company="CloudFirst Inc" data-pos="Backend Developer" data-loc="Seattle, WA" data-type="Full-time" data-sal="$140k - $190k" data-desc="Manage server-side logic and cloud infrastructure architecture." data-status="all"></div>
+            <div class="job-source" data-id="5" data-company="SoftMind" data-pos="Frontend Engineer" data-loc="Remote" data-type="Contract" data-sal="$90k - $110k" data-desc="Develop interactive user interfaces with modern frameworks." data-status="all"></div>
+            <div class="job-source" data-id="6" data-company="CyberShield" data-pos="Security Analyst" data-loc="Chicago" data-type="Full-time" data-sal="$115k - $145k" data-desc="Protect enterprise systems from potential security breaches." data-status="all"></div>
+            <div class="job-source" data-id="7" data-company="GreenTech" data-pos="DevOps Engineer" data-loc="Austin, TX" data-type="Hybrid" data-sal="$130k - $160k" data-desc="Automate deployment pipelines and manage cloud resources." data-status="all"></div>
+            <div class="job-source" data-id="8" data-company="Creative Hub" data-pos="UI/UX Designer" data-loc="New York" data-type="Full-time" data-sal="$100k - $135k" data-desc="Design user-centric workflows for complex web applications." data-status="all"></div>
+        </div>
 
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-xl font-bold text-[#001f3f]">Available Jobs</h2>
@@ -52,8 +63,8 @@
                 <div class="bg-gray-50 p-6 rounded-full mb-4">
                     <i data-lucide="folder-search" class="w-12 h-12 text-gray-300"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-700">No Jobs Available</h3>
-                <p class="text-gray-500">The list is empty for this category.</p>
+                <h3 class="text-xl font-bold text-gray-700">No jobs available</h3>
+                <p class="text-gray-500">Check back soon for new job opportunities</p>
             </div>
         </div>
     </div>

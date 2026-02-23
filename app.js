@@ -1,28 +1,33 @@
-// Initial Jobs Data
-let jobs = [
-    { id: 1, company: "Mobile First Corp", pos: "React Native Developer", loc: "Remote", type: "Full-time", sal: "$130k - $175k", desc: "Build cross-platform mobile apps using React Native for global scale.", status: "all" },
-    { id: 2, company: "WebFlow Agency", pos: "Web Designer & Developer", loc: "Los Angeles, CA", type: "Part-time", sal: "$80k - $120k", desc: "Create high-end web experiences for premium digital brands.", status: "all" },
-    { id: 3, company: "DataViz Solutions", pos: "Data Specialist", loc: "Boston, MA", type: "Full-time", sal: "$125k - $165k", desc: "Transform big data into actionable insights and visualizations.", status: "all" },
-    { id: 4, company: "CloudFirst Inc", pos: "Backend Developer", loc: "Seattle, WA", type: "Full-time", sal: "$140k - $190k", desc: "Manage server-side logic and cloud infrastructure architecture.", status: "all" },
-    { id: 5, company: "SoftMind", pos: "Frontend Engineer", loc: "Remote", type: "Contract", sal: "$90k - $110k", desc: "Develop interactive user interfaces with modern frameworks.", status: "all" },
-    { id: 6, company: "CyberShield", pos: "Security Analyst", loc: "Chicago", type: "Full-time", sal: "$115k - $145k", desc: "Protect enterprise systems from potential security breaches.", status: "all" },
-    { id: 7, company: "GreenTech", pos: "DevOps Engineer", loc: "Austin, TX", type: "Hybrid", sal: "$130k - $160k", desc: "Automate deployment pipelines and manage cloud resources.", status: "all" },
-    { id: 8, company: "Creative Hub", pos: "UI/UX Designer", loc: "New York", type: "Full-time", sal: "$100k - $135k", desc: "Design user-centric workflows for complex web applications.", status: "all" }
-];
-
+let jobs = [];
 let currentTab = 'all';
 
-// Function to update Dashboard statistics
+// 1. HTML er data-source 
+function initData() {
+    const rawElements = document.querySelectorAll('.job-source');
+    rawElements.forEach(el => {
+        jobs.push({
+            id: parseInt(el.dataset.id),
+            company: el.dataset.company,
+            pos: el.dataset.pos,
+            loc: el.dataset.loc,
+            type: el.dataset.type,
+            sal: el.dataset.sal,
+            desc: el.dataset.desc,
+            status: el.dataset.status
+        });
+    });
+}
+
+//2. Dashboard
 function updateDashboard() {
     document.getElementById('dash-total').innerText = jobs.length;
     document.getElementById('dash-interview').innerText = jobs.filter(j => j.status === 'interview').length;
     document.getElementById('dash-rejected').innerText = jobs.filter(j => j.status === 'rejected').length;
 }
 
-// Function to switch between tabs
+// 3. Tab bodlano
 function setTab(tab) {
     currentTab = tab;
-    // Update Tab UI active states
     ['all', 'interview', 'rejected'].forEach(t => {
         const btn = document.getElementById(`tab-${t}`);
         if(t === tab) {
@@ -34,35 +39,31 @@ function setTab(tab) {
     render();
 }
 
-// Function to change status of a job
+// 4. newStatus bodlano
 function updateStatus(id, newStatus) {
-    const jobIndex = jobs.findIndex(j => j.id === id);
-    if (jobIndex !== -1) {
-        jobs[jobIndex].status = newStatus;
+    const job = jobs.find(j => j.id === id);
+    if (job) {
+        job.status = newStatus;
         updateDashboard();
         render();
     }
 }
 
-// Function to delete a job card
+//5. Delet kora
 function deleteJob(id) {
     jobs = jobs.filter(j => j.id !== id);
     updateDashboard();
     render();
 }
 
-// Main render function to display cards
+// 6. render 
 function render() {
     const container = document.getElementById('jobs-container');
     const empty = document.getElementById('empty-state');
-    
-    // Filter jobs based on current tab
     const filteredJobs = currentTab === 'all' ? jobs : jobs.filter(j => j.status === currentTab);
     
-    // Update count in the section header
     document.getElementById('current-tab-count').innerText = filteredJobs.length;
 
-    // Show empty state if no jobs match
     if (filteredJobs.length === 0) {
         container.innerHTML = "";
         empty.classList.remove('hidden');
@@ -96,12 +97,12 @@ function render() {
             </div>
         `).join('');
     }
-    // Re-initialize icons after rendering
     lucide.createIcons();
 }
 
-// Initial Call
+// DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
+    initData();
     updateDashboard();
     render();
 });
