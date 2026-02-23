@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
+    <!-- daisyui link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- font link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
     <style>
-         *{
-            font-family: 'Inter', sans-serif;
+        *{ 
+             font-family: "Inter", sans-serif;
         }
     </style>
+
 </head>
 <body class="p-4 md:p-8">
 
@@ -17,57 +30,80 @@
         <h1 class="text-2xl font-bold text-[#002C5C] mb-6">Job Application Tracker</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <p class="text-sm text-[#323B49] font-medium">Total</p>
                 <h2 class="text-3xl font-bold text-[#002C5C]" id="dash-total">0</h2>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <p class="text-sm text-[#323B49] font-medium">Interview</p>
                 <h2 class="text-3xl font-bold text-success" id="dash-interview">0</h2>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center md:text-left">
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <p class="text-sm text-[#323B49] font-medium">Rejected</p>
                 <h2 class="text-3xl font-bold text-error" id="dash-rejected">0</h2>
             </div>
         </div>
 
-        <hr class="border-t-2 border-[#E6E7E9] w-full mb-8 mx-auto md:mx-0">
+        <hr class="border-t-2 border-[#E6E7E9] w-full mb-8">
 
         <div id="raw-data" class="hidden">
             <div class="job-source" data-id="1" data-company="Mobile First Corp" data-pos="React Native Developer" data-loc="Remote" data-type="Full-time" data-sal="$130,000 - $175,000" data-desc="Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide." data-status="all"></div>
 
-            <div class="job-source" data-id="2" data-company="WebFlow Agency" data-pos="Web Designer" data-loc="LA, CA" data-type="Part-time" data-sal="$80k - $120k" data-desc="Create high-end web experiences for premium digital brands." data-status="all"></div>
-            <div class="job-source" data-id="3" data-company="DataViz Solutions" data-pos="Data Specialist" data-loc="Boston, MA" data-type="Full-time" data-sal="$125k - $165k" data-desc="Transform big data into actionable insights and visualizations." data-status="all"></div>
-            <div class="job-source" data-id="4" data-company="CloudFirst Inc" data-pos="Backend Developer" data-loc="Seattle, WA" data-type="Full-time" data-sal="$140k - $190k" data-desc="Manage server-side logic and cloud infrastructure architecture." data-status="all"></div>
-            <div class="job-source" data-id="5" data-company="SoftMind" data-pos="Frontend Engineer" data-loc="Remote" data-type="Contract" data-sal="$90k - $110k" data-desc="Develop interactive user interfaces with modern frameworks." data-status="all"></div>
-            <div class="job-source" data-id="6" data-company="CyberShield" data-pos="Security Analyst" data-loc="Chicago" data-type="Full-time" data-sal="$115k - $145k" data-desc="Protect enterprise systems from potential security breaches." data-status="all"></div>
-            <div class="job-source" data-id="7" data-company="GreenTech" data-pos="DevOps Engineer" data-loc="Austin, TX" data-type="Hybrid" data-sal="$130k - $160k" data-desc="Automate deployment pipelines and manage cloud resources." data-status="all"></div>
-            <div class="job-source" data-id="8" data-company="Creative Hub" data-pos="UI/UX Designer" data-loc="New York" data-type="Full-time" data-sal="$100k - $135k" data-desc="Design user-centric workflows for complex web applications." data-status="all"></div>
+            <div class="job-source" data-id="2" data-company="WebFlow Agency" data-pos="Web Designer & Developer" data-loc="Los Angeles, CA" data-type="Part-time" data-sal="$80,000 - $120,000" data-desc="Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends." data-status="all"></div>
+
+            <div class="job-source" data-id="3" data-company="DataViz Solutions" data-pos="Data Visualization Specialist" data-loc="Boston, MA" data-type="Full-time" data-sal="125,000 - $165,000" data-desc="Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking." data-status="all"></div>
+
+            <div class="job-source" data-id="4" data-company="CloudFirst Inc" data-pos="Backend Developer" data-loc="Seattle, WA" data-type="Full-time" data-sal=" $140,000 - $190,000" data-desc="Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure." data-status="all"></div>
+
+            <div class="job-source" data-id="5" data-company="Innovation Labs" data-pos="UI/UX Engineer" data-loc="Austin, TX" data-type="Full-time" data-sal="$110,000 - $150,000" data-desc="Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required." data-status="all"></div>
+
+            <div class="job-source" data-id="6" data-company="MegaCorp Solutions" data-pos="JavaScript Developer" data-loc="New York, NY" data-type=" Full-time" data-sal=" $130,000 - $170,00" data-desc=" Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities." data-status="all"></div>
+
+            <div class="job-source" data-id="7" data-company="StartupXYZ" data-pos="Full Stack Engineer" data-loc="Remote" data-type="Full-time " data-sal="$120,000 - $160,000" data-desc="Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included." data-status="all"></div>
+
+            <div class="job-source" data-id="8" data-company="TechCorp Industries" data-pos="Senior Frontend Developer" data-loc="San Francisco, CA" data-type="Full-time " data-sal="$130,000 - $175,000" data-desc="We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects." data-status="all"></div>
         </div>
 
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-[#001f3f]">Available Jobs</h2>
-            <p class="text-sm text-gray-500 font-semibold"><span id="current-tab-count">0</span> jobs</p>
+            <h2 class="text-xl font-bold text-[#002C5C]">Available Jobs</h2>
+            <p class="text-sm text-[#64748B] font-semibold"><span id="current-tab-count">0</span> jobs</p>
         </div>
 
         <div class="flex flex-wrap gap-2 mb-8">
-            <button id="tab-all" onclick="setTab('all')" class="btn btn-sm tab-active-custom px-6">All</button>
-            <button id="tab-interview" onclick="setTab('interview')" class="btn btn-sm btn-ghost bg-white border border-gray-200 text-gray-500 px-6">Interview</button>
-            <button id="tab-rejected" onclick="setTab('rejected')" class="btn btn-sm btn-ghost bg-white border border-gray-200 text-gray-500 px-6">Rejected</button>
+            <button id="tab-all" onclick="setTab('all')" class="btn btn-sm tab-active-custom px-6 text-xs">All</button>
+            <button id="tab-interview" onclick="setTab('interview')" class="btn btn-sm btn-ghost bg-white border border-[#F1F2F4] text-[#64748B] px-6 text-xs">Interview</button>
+            <button id="tab-rejected" onclick="setTab('rejected')" class="btn btn-sm btn-ghost bg-white border border-[#F1F2F4] text-[#64748B] px-6 text-xs">Rejected</button>
         </div>
 
-        <div id="jobs-wrapper">
-            <div id="jobs-container" class="space-y-4"></div>
-            
-            <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center bg-white rounded-xl border border-dashed border-gray-300">
-                <div class="bg-gray-50 p-6 rounded-full mb-4">
-                    <i data-lucide="folder-search" class="w-12 h-12 text-gray-300"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-700">No jobs available</h3>
-                <p class="text-gray-500">Check back soon for new job opportunities</p>
-            </div>
+        <div id="jobs-container" class="space-y-4"></div>
+        
+        <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center bg-white rounded-xl border border-solid border-[#F1F2F4]">
+            <img src="jobs.png" alt="">
+            <h3 class="text-xl font-bold text-[#002C5C]">No jobs available</h3>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
     </div>
+
+    <template id="job-card-template">
+        <div class="job-card bg-white p-6 rounded-lg border border-[#F1F2F4] shadow-sm relative group hover:shadow-md transition-all">
+            <button class="del-btn absolute top-6 right-6 text-[#64748B] hover:text-red-500 cursor-pointer border border-solid px-2 py-1 rounded-full">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <h3 class="comp-name text-lg font-bold text-[#002C5C]"></h3>
+
+            <p class="job-pos text-[#64748B] mb-2 font-medium"></p>
+
+            <div class="job-meta flex flex-wrap gap-4 text-[11px] text-gray-400 mb-4 font-bold uppercase"></div>
+            <div class="job-status-badge inline-block bg-[#EEF4FF] text-[#002C5C] px-3 py-1 rounded text-[10px] font-black mb-4 uppercase"></div>
+
+            <p class="job-desc text-sm text-[#64748B] mb-6 leading-relaxed max-w-3xl"></p>
+
+            <div class="flex gap-3">
+                <button class="btn-int btn btn-sm px-6 text-[10px] font-bold uppercase">Interview</button>
+                <button class="btn-rej btn btn-sm px-6 text-[10px] font-bold uppercase">Rejected</button>
+            </div>
+        </div>
+    </template>
 
     <script src="app.js"></script>
 </body>
